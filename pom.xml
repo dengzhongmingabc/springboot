@@ -124,6 +124,14 @@
 			<version>2.3.3.RELEASE</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-jwt</artifactId>
+			<version>1.0.8.RELEASE</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -156,6 +164,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
 					<jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
+					<addResources>true</addResources>
 				</configuration>
 				<executions>
 					<execution>
@@ -166,6 +175,15 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<excludes>
+					<exclude>*.jks</exclude>
+				</excludes>
+			</resource>
+		</resources>
 	</build>
 
 
