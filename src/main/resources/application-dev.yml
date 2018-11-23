@@ -31,9 +31,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+  security:
+    filter:
+      order: 5
 logging:
   config: classpath:log4j2.xml
 
 database:
   pagefix: offset
-

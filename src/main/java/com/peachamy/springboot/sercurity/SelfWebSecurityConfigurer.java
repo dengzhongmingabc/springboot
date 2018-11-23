@@ -57,17 +57,18 @@ public class SelfWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+                /*.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()*/
                 .httpBasic().authenticationEntryPoint(ajaxAuthenticationEntryPoint)
                 .and()
                 .authorizeRequests()//允许基于HttpServletRequest使用限制访问
                 //.antMatchers("/user/test").hasRole("ADMIN")
-                .anyRequest().access("@authorizeService.hasPerssion(request,authentication)")
-                //.authenticated()//其他路径必须验证身份
+                //.anyRequest().access("@authorizeService.hasPerssion(request,authentication)")
+                .anyRequest()
+                .authenticated()//其他路径必须验证身份
                 .and()
                 .formLogin().loginPage("/login")//自定义登录界面
-                .successHandler(ajaxAuthenticationSuccessHandler)
+//                .successHandler(ajaxAuthenticationSuccessHandler)
                 .failureHandler(ajaxAuthenticationFailureHandler)
                 .permitAll()
                 .and()
@@ -78,9 +79,9 @@ public class SelfWebSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(1209600);*/
         http.exceptionHandling().accessDeniedHandler(ajaxAccessDeniedHandler);
 
-        http.addFilterBefore(jwtOncePerRequestFilter,UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(jwtOncePerRequestFilter,UsernamePasswordAuthenticationFilter.class);
 
-        http.headers().cacheControl();
+        //http.headers().cacheControl();
     }
 
 }

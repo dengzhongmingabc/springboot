@@ -1,5 +1,6 @@
 package com.peachamy.springboot.sercurity.auth;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -7,7 +8,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.stereotype.Component;
 
-@Component
+@Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfigurer extends AuthorizationServerConfigurerAdapter {
 
@@ -19,7 +20,11 @@ public class AuthorizationServerConfigurer extends AuthorizationServerConfigurer
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        super.configure(clients);
+        clients.inMemory().withClient("normal-app")
+                .authorizedGrantTypes("authorization_code","implicit")
+                .scopes("scope1").scopes("scope2")
+                .accessTokenValiditySeconds(3600).authorities("CLIENT").redirectUris("https://www.baidu.com");;
+
     }
 
     @Override
