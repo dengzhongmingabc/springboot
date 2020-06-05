@@ -39,5 +39,5 @@ Class-Path: spring-context-support-5.0.5.RELEASE.jar log4j-core-2.10.0
  g-aop-5.0.5.RELEASE.jar netty-buffer-4.1.23.Final.jar netty-resolver-
  4.1.23.Final.jar hibernate-jpa-2.1-api-1.0.0.Final.jar spring-boot-st
  arter-2.0.1.RELEASE.jar
-Main-Class: com.peachamy.springboot.Application
+Main-Class: com.honorfly.schoolsys.Application
 
