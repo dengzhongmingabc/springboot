@@ -50,14 +50,14 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.42</version>
+			<version>8.0.19</version>
 		</dependency>
 
-        <!--redis缓存 包-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>
+<!--        &lt;!&ndash;redis缓存 包&ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--		</dependency>-->
 
         <!--日志 包-->
 		<dependency>
@@ -93,10 +93,10 @@
             <version>2.9.5</version>
         </dependency>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -110,36 +110,38 @@
 			<version>1.2.47</version>
 		</dependency>
 
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>0.9.0</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>io.jsonwebtoken</groupId>-->
+<!--			<artifactId>jjwt</artifactId>-->
+<!--			<version>0.9.0</version>-->
+<!--		</dependency>-->
 
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
-		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
-			<version>2.3.3.RELEASE</version>
-		</dependency>
+<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security.oauth</groupId>-->
+<!--			<artifactId>spring-security-oauth2</artifactId>-->
+<!--			<version>2.3.3.RELEASE</version>-->
+<!--		</dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-jwt -->
+<!--
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-jwt</artifactId>
 			<version>1.0.8.RELEASE</version>
 		</dependency>
+-->
 
 
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
 
 			<plugin>
 				<groupId>com.spotify</groupId>
@@ -176,12 +178,34 @@
 			</plugin>
 		</plugins>
 		<resources>
+
+
 			<resource>
+
 				<directory>src/main/resources</directory>
+
 				<filtering>true</filtering>
+
 				<excludes>
-					<exclude>*.jks</exclude>
+
+					<exclude>static/layuiadmin/layui/**/*</exclude>
+
 				</excludes>
+
+			</resource>
+
+			<resource>
+
+				<directory>src/main/resources</directory>
+
+				<filtering>false</filtering>
+
+				<includes>
+
+					<include>static/layuiadmin/layui/**/*</include>
+
+				</includes>
+
 			</resource>
 		</resources>
 	</build>

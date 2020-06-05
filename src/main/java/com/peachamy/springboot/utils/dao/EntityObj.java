@@ -1,6 +1,5 @@
 package com.peachamy.springboot.utils.dao;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONObject;

@@ -1,7 +1,6 @@
 package com.peachamy.springboot.controller;
 
 import com.peachamy.springboot.entry.User;
-import com.peachamy.springboot.sercurity.MyUserDtls;
 import com.peachamy.springboot.service.IUserService;
 import com.peachamy.springboot.utils.AppConst;
 import com.peachamy.springboot.utils.JSONHelper;
@@ -11,8 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,16 +28,10 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/test")
-    public String test(){
-        try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            MyUserDtls currentPrincipalName = (MyUserDtls) authentication.getPrincipal();
-            return "xxxx";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "xxxx";
-        }
+    public String  test(String username,String password){
+        return "hello world!";
     }
+
 
     @ResponseBody
     @RequestMapping("/userLogin")
